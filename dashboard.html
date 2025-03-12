@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+
+        .dashboard-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #b91c1c;
+        }
+    </style>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+            import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+           
+            const firebaseConfig = {
+                apiKey: "AIzaSyC_1lS97b_tF3egyC8Ack7P1Vjn8axjDlc",
+                authDomain: "backend1-1bf19.firebaseapp.com",
+                projectId: "backend1-1bf19",
+                storageBucket: "backend1-1bf19.firebasestorage.app",
+                messagingSenderId: "746650712709",
+                appId: "1:746650712709:web:7bc97b35616d4dbd92c7ec",
+                measurementId: "G-ZJ7XH216ZR"
+            };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("logout").addEventListener("click", () => {
+                signOut(auth).then(() => {
+                    window.location.href = "index.html";
+                }).catch((error) => {
+                    alert("Logout Failed: " + error.message);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <h2>Welcome to Dashboard</h2>
+        <p>You have successfully logged in.</p>
+        <button id="logout">Logout</button>
+    </div>
+</body>
+
+</html>
